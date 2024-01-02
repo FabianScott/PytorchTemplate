@@ -16,4 +16,4 @@
 module load python3/3.11.3
 # module load cuda/11.8
 source venv/bin/activate
-python3 create_model_rankings.py --model Fuzzy
+python3 NNTemplate.py
