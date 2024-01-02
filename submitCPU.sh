@@ -11,7 +11,7 @@
 ### -- send notification at completion--
 #BSUB -N
 # end of BSUB options
-
+ 
 module load python3/3.11.3
 source venv/bin/activate
 python3 script.py

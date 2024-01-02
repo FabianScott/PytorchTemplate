@@ -91,7 +91,7 @@ if __name__ == '__main__':
     # Hyper-parameters:
     nNodes = 300
     nHiddenLayers = 4
-    epochs = 100_000
+    epochs = 1000
 
     dtype = torch.float32
 
@@ -116,7 +116,7 @@ if __name__ == '__main__':
     network.trainBatch(X_train, y_train, epochs=epochs)
 
     # Then saved, here the hyperparameters are used in the filename to distinguish them:
-    network.save(f'NN_{nNodes}_{nHiddenLayers}_{epochs}')
+    network.save(f'Models/NN_{nNodes}_{nHiddenLayers}_{epochs}')
 
     # To load again use
     network.load(f'Models/NN_N{nNodes}_{nHiddenLayers}_{epochs}')
