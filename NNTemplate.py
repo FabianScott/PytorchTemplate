@@ -5,6 +5,7 @@ import pandas as pd
 from tqdm import tqdm
 from copy import copy
 import matplotlib.pyplot as plt
+import os
 
 
 class MLP(nn.Module):
@@ -115,11 +116,16 @@ if __name__ == '__main__':
     # Here the network is trained:
     network.trainBatch(X_train, y_train, epochs=epochs)
 
+    if not os.path.isdir(os.path.join(os.getcwd(), 'Models')):
+        os.makedirs(os.path.join(os.getcwd(), 'Models'))
+    if not os.path.isdir(os.path.join(os.getcwd(), 'Plots')):
+        os.makedirs(os.path.join(os.getcwd(), 'Plots'))
+    
     # Then saved, here the hyperparameters are used in the filename to distinguish them:
     network.save(f'Models/NN_{nNodes}_{nHiddenLayers}_{epochs}')
 
     # To load again use
-    network.load(f'Models/NN_N{nNodes}_{nHiddenLayers}_{epochs}')
+    network.load(f'Models/NN_{nNodes}_{nHiddenLayers}_{epochs}')
 
     # For analysis of your results, use the following to get the NN prediction on the test data:
     y_NN = network.forward(X_test)
